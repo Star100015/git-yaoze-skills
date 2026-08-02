@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>艺术风格简历 · {STYLE}</title>
+<style>
+:root{
+  /* 以下令牌由 design tokens 注入，渲染时整体替换为目标风格的值 */
+  --bg:#0a0e14;
+  --surface:#111722;
+  --accent:#00e5ff;
+  --text:#d7f7ff;
+  --muted:#6fa8bf;
+  --border:rgba(0,229,255,.35);
+  --shadow:0 0 24px rgba(0,229,255,.25);
+  --texture:linear-gradient(rgba(0,229,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,229,255,.04) 1px, transparent 1px);
+  --font-display:'Orbitron','PingFang SC',sans-serif;
+  --font-body:'Rajdhani','PingFang SC',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--font-body);
+  line-height:1.6;
+  padding:40px 16px;
+  background-image:var(--texture);
+  background-attachment:fixed;
+}
+.page{
+  max-width:960px;
+  margin:0 auto;
+  background:var(--surface);
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+  border-radius:16px;
+  overflow:hidden;
+}
+.banner{
+  background:var(--accent);
+  color:var(--bg);
+  padding:36px 48px;
+}
+.banner .name{
+  font-family:var(--font-display);
+  font-size:44px;
+  letter-spacing:2px;
+}
+.banner .role{
+  font-size:18px;
+  letter-spacing:4px;
+  opacity:.85;
+  margin-top:6px;
+}
+.columns{display:flex;}
+.sidebar{
+  width:34%;
+  background:rgba(0,0,0,.12);
+  padding:32px 28px;
+  border-right:1px solid var(--border);
+}
+.main{padding:32px 36px;flex:1;}
+.block{margin-bottom:26px;}
+.block h2{
+  font-family:var(--font-display);
+  color:var(--accent);
+  font-size:18px;
+  letter-spacing:2px;
+  margin-bottom:10px;
+  border-bottom:1px dashed var(--border);
+  padding-bottom:6px;
+}
+.contact-line{font-size:14px;color:var(--muted);margin-bottom:6px;}
+.item{margin-bottom:14px;}
+.item .title{font-weight:600;color:var(--text);}
+.item .meta{color:var(--muted);font-size:13px;margin:2px 0 6px;}
+.item .desc{color:var(--muted);font-size:14px;}
+.skills{display:flex;flex-wrap:wrap;gap:8px;}
+.skill{
+  border:1px solid var(--border);
+  color:var(--accent);
+  padding:5px 12px;
+  border-radius:18px;
+  font-size:13px;
+}
+footer{
+  text-align:center;
+  color:var(--muted);
+  font-size:12px;
+  padding:18px;
+  border-top:1px solid var(--border);
+}
+@media (max-width:720px){
+  .columns{flex-direction:column;}
+  .sidebar{width:100%;border-right:none;border-bottom:1px solid var(--border);}
+}
+@media print{
+  body{background:var(--surface);padding:0;}
+  .page{box-shadow:none;border:none;}
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="banner">
+    <div class="name">{姓名}</div>
+    <div class="role">{目标职位}</div>
+  </div>
+  <div class="columns">
+    <aside class="sidebar">
+      <div class="block">
+        <h2>联系方式</h2>
+        <div class="contact-line">邮箱：{邮箱}</div>
+        <div class="contact-line">电话：{电话}</div>
+        <div class="contact-line">城市：{城市}</div>
+        <div class="contact-line">主页：{个人主页}</div>
+      </div>
+      <div class="block">
+        <h2>专业技能</h2>
+        <div class="skills">
+          <span class="skill">{技能1}</span>
+          <span class="skill">{技能2}</span>
+          <!-- 增加更多 .skill -->
+        </div>
+      </div>
+      <div class="block">
+        <h2>教育背景</h2>
+        <div class="item">
+          <div class="title">{学校}</div>
+          <div class="meta">{专业 / 学位} · {时间}</div>
+        </div>
+      </div>
+    </aside>
+    <main class="main">
+      <div class="block">
+        <h2>个人简介</h2>
+        <div class="desc" style="color:var(--muted)">{用 2-3 句话概括核心优势与职业定位。}</div>
+      </div>
+      <div class="block">
+        <h2>工作经历</h2>
+        <div class="item">
+          <div class="title">{职位名称}</div>
+          <div class="meta">{公司} · {时间} · {城市}</div>
+          <div class="desc">{职责与成果。}</div>
+        </div>
+        <!-- 复制 .item 增加更多经历 -->
+      </div>
+      <div class="block">
+        <h2>项目经历</h2>
+        <div class="item">
+          <div class="title">{项目名称}</div>
+          <div class="meta">{角色} · {时间}</div>
+          <div class="desc">{项目描述与贡献。}</div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer>本简历由「艺术风格简历生成助手」以 {风格名称} 风格生成 · 仅供预览与投递草稿</footer>
+</div>
+</body>
+</html>
